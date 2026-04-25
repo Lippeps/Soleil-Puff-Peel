@@ -1,70 +1,125 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soleil Puff&Peel - Sweet Delight</title>
-    <style>
-        :root {
-            --mint-sage: #B2D2A4;
-            --butter-cream: #FDF5E6;
-            --pastel-yellow: #FFF9C4;
-            --text-dark: #4A4A4A;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soleil Puff & Peel</title>
 
-        body { 
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: var(--butter-cream); 
-            color: var(--text-dark); 
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-        header { 
-            background-color: var(--mint-sage); 
-            color: white; 
-            padding: 60px 20px; 
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
+  <style>
+    body {margin:0;font-family:'Poppins',sans-serif;background:#fffdf7;color:#333}
+    header {background:linear-gradient(135deg,#f6d365,#96e6a1);padding:3rem 1rem;text-align:center}
+    nav {display:flex;justify-content:center;gap:2rem;padding:1rem;background:#fff;position:sticky;top:0}
+    nav a{text-decoration:none;color:#333}
+    section{padding:3rem 1.5rem;max-width:1000px;margin:auto}
 
-        header h1 { 
-            margin: 0; 
-            font-size: 3em; 
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
+    .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+    .card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.08)}
+    .card img{width:100%;height:200px;object-fit:cover}
+    .card-content{padding:1rem}
+    .btn{display:inline-block;padding:10px 20px;background:#4CAF50;color:#fff;border-radius:20px;cursor:pointer;border:none}
 
-        header p { 
-            margin: 15px 0 0; 
-            font-size: 1.2em;
-            font-weight: 300;
-        }
+    .cart{background:#fff;padding:1rem;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,.08);margin-top:2rem}
+    input{padding:10px;margin:5px 0;width:100%;border-radius:10px;border:1px solid #ccc}
 
-        .container { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-            padding: 50px 20px; 
-            gap: 40px; 
-        }
+  </style>
+</head>
+<body>
 
-        .card { 
-            background: white; 
-            border-radius: 20px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.07); 
-            width: 320px; 
-            overflow: hidden; 
-            transition: all 0.4s ease;
-            border: none;
-            display: flex;
-            flex-direction: column;
-        }
+<header>
+  <h1>Soleil Puff & Peel</h1>
+  <p>"Nature provides for our needs, but we must provide the creativity."</p>
+</header>
 
-        .card:hover { 
-            transform: translateY(-15px); 
-            box-shadow: 0 20px 40px rgba(178, 210, 164, 0.4);
-        }
+<nav>
+  <a href="#produk">Produk</a>
+  <a href="#order">Order</a>
+</nav>
+
+<section id="produk">
+  <h2>Produk Kami</h2>
+  <div class="products">
+
+    <div class="card">
+      <img src="mango.jpg">
+      <div class="card-content">
+        <h3>Mango Pancake</h3>
+        <p>Rp15.000</p>
+        <button class="btn" onclick="addToCart('Mango Pancake',15000)">Tambah</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="banana.jpg">
+      <div class="card-content">
+        <h3>Banana Puff</h3>
+        <p>Rp10.000</p>
+        <button class="btn" onclick="addToCart('Banana Puff',10000)">Tambah</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="order">
+  <h2>Order</h2>
+
+  <div class="cart">
+    <h3>Keranjang</h3>
+    <ul id="cartList"></ul>
+    <p><strong>Total: Rp <span id="total">0</span></strong></p>
+
+    <input type="text" id="name" placeholder="Nama kamu">
+    <input type="text" id="address" placeholder="Alamat">
+
+    <button class="btn" onclick="checkout()">Pesan via WhatsApp</button>
+  </div>
+</section>
+
+<script>
+let cart = [];
+
+function addToCart(name, price) {
+  cart.push({name, price});
+  renderCart();
+}
+
+function renderCart() {
+  const list = document.getElementById('cartList');
+  const totalEl = document.getElementById('total');
+
+  list.innerHTML = '';
+  let total = 0;
+
+  cart.forEach(item => {
+    const li = document.createElement('li');
+    li.innerText = item.name + ' - Rp ' + item.price;
+    list.appendChild(li);
+    total += item.price;
+  });
+
+  totalEl.innerText = total;
+}
+
+function checkout() {
+  const name = document.getElementById('name').value;
+  const address = document.getElementById('address').value;
+
+  let message = `Halo, saya mau pesan:%0A`;
+  cart.forEach(item => {
+    message += `- ${item.name} (Rp ${item.price})%0A`;
+  });
+
+  message += `%0ANama: ${name}%0AAlamat: ${address}`;
+
+  window.open(`https://wa.me/628xxxxxxxxxx?text=${message}`);
+}
+</script>
+
+</body>
+</html>
 
         /* Styling untuk Gambar */
         .product-image {
