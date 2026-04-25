@@ -1,39 +1,110 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Soleil Puff & Peel</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soleil Puff&Peel</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fffaf3;
+  color: #5a5a5a;
+}
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+header {
+  background: #f7e8c8;
+  padding: 40px 20px;
+  text-align: center;
+}
 
-  <style>
-    body {margin:0;font-family:'Poppins',sans-serif;background:#fffdf7;color:#333}
-    header {background:linear-gradient(135deg,#f6d365,#96e6a1);padding:3rem 1rem;text-align:center}
-    nav {display:flex;justify-content:center;gap:2rem;padding:1rem;background:#fff;position:sticky;top:0}
-    nav a{text-decoration:none;color:#333}
-    section{padding:3rem 1.5rem;max-width:1000px;margin:auto}
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
 
-    .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
-    .card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.08)}
-    .card img{width:100%;height:200px;object-fit:cover}
-    .card-content{padding:1rem}
-    .btn{display:inline-block;padding:10px 20px;background:#4CAF50;color:#fff;border-radius:20px;cursor:pointer;border:none}
+header p {
+  font-style: italic;
+}
 
-    .cart{background:#fff;padding:1rem;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,.08);margin-top:2rem}
-    input{padding:10px;margin:5px 0;width:100%;border-radius:10px;border:1px solid #ccc}
+.section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
 
-  </style>
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+button {
+  background: #b7e4c7;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #f7e8c8;
+}
+</style>
 </head>
 <body>
 
 <header>
-  <h1>Soleil Puff & Peel</h1>
+  <h1>Soleil Puff&Peel</h1>
   <p>"Nature provides for our needs, but we must provide the creativity."</p>
 </header>
 
-<nav>
+<section class="section">
+  <h2>Our Menu</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Banana Puff Original</h3>
+      <p>Sweet banana in crispy layers.</p>
+    </div>
+    <div class="card">
+      <h3>Banana Puff Choco</h3>
+      <p>Banana with melted chocolate.</p>
+    </div>
+    <div class="card">
+      <h3>Banana Puff Cheese</h3>
+      <p>Sweet meets savory cheese.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>About Us</h2>
+  <p>Soleil Puff&Peel brings warm, homemade snacks made from local ingredients.</p>
+</section>
+
+<section class="section">
+  <h2>Order Now</h2>
+  <input placeholder="Your Name"><br><br>
+  <input placeholder="WhatsApp"><br><br>
+  <button>Submit</button>
+</section>
+
+<footer>
+  <p>© 2026 Soleil Puff&Peel</p>
+</footer>
+
+</body>
+</html>
   <a href="#produk">Produk</a>
   <a href="#order">Order</a>
 </nav>
