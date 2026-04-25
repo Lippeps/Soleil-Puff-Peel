@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Produk Aku</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background-color: #f4f4f4; padding: 50px; }
+        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: inline-block; }
+        h1 { color: #333; }
+        p { color: #666; }
+        .harga { font-weight: bold; color: #2ecc71; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Nama Produk Kamu</h1>
+        <p>Deskripsi singkat tentang produk keren yang kamu buat untuk tugas sekolah ini.</p>
+        <p class="harga">Rp 50.000</p>
+        <button>Beli Sekarang</button>
+    </div>
+</body>
+</html>
