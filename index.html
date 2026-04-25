@@ -574,14 +574,132 @@
     /* ===== FOOTER ===== */
     footer {
       background: var(--text);
-      color: rgba(245,237,216,0.6);
+      color: rgba(245,237,216,0.55);
       text-align: center;
-      padding: 28px 60px;
-      font-size: 0.8rem;
-      letter-spacing: 0.04em;
+      padding: 60px 60px 36px;
+      position: relative;
+      overflow: hidden;
     }
-    footer strong { color: var(--cream); }
-    footer a { color: var(--gold); text-decoration: none; }
+    footer::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(212,168,83,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .footer-inner { position: relative; z-index: 1; }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--cream);
+      letter-spacing: 0.02em;
+      margin-bottom: 6px;
+    }
+    .footer-brand span { color: var(--gold); font-style: italic; }
+    .footer-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      margin-bottom: 28px;
+    }
+    .footer-poem {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: rgba(245,237,216,0.5);
+      line-height: 1.9;
+      margin-bottom: 32px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .footer-divider {
+      width: 60px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 0 auto 28px;
+    }
+    .footer-links {
+      display: flex; justify-content: center; gap: 28px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    footer a { color: rgba(245,237,216,0.55); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s; }
+    footer a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.72rem; color: rgba(245,237,216,0.3); letter-spacing: 0.06em; }
+
+    /* ===== FAQ ===== */
+    #faq { background: var(--cream); }
+    .faq-header { text-align: center; margin-bottom: 56px; }
+    .faq-header .section-sub { margin: 0 auto; }
+    .faq-grid {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .faq-item {
+      background: var(--warm-white);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 3px 18px rgba(59,31,14,0.07);
+      transition: box-shadow 0.3s;
+    }
+    .faq-item:hover { box-shadow: 0 8px 32px rgba(59,31,14,0.12); }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      gap: 16px;
+      text-align: left;
+    }
+    .faq-q-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--brown);
+      line-height: 1.4;
+    }
+    .faq-icon {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      transition: transform 0.3s, background 0.3s;
+      color: var(--orange);
+      font-weight: 700;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      background: var(--orange);
+      color: #fff;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+      padding: 0 28px;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 0 28px 22px;
+    }
+    .faq-answer p {
+      font-size: 0.9rem;
+      color: var(--brown-mid);
+      line-height: 1.8;
+      border-left: 3px solid var(--gold);
+      padding-left: 16px;
+    }
 
     /* ===== ANIMATIONS ===== */
     @keyframes fadeUp {
@@ -625,6 +743,7 @@
     <li><a href="#menu">Menu</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact" class="nav-cta">Order Now</a></li>
   </ul>
 </nav>
@@ -685,8 +804,8 @@
           Lapisan pastry yang renyah keemasan berpadu dengan pisang pilihan yang manis legit — setiap gigitan menghadirkan tekstur berlapis yang meleleh di mulut, menghangatkan hari-harimu seperti sinar matahari pertama pagi hari.
         </p>
         <div class="menu-footer">
-          <div class="menu-price">Rp 10.000 <span>/ pcs</span></div>
-          <a href="https://wa.me/6281234567890?text=Halo%20Soleil!%20Saya%20mau%20order%20Banana%20Puff%20🍌" class="btn-order" target="_blank">
+          <div class="menu-price">Rp 10.000 <span>/ box</span></div>
+          <a href="https://wa.me/6281222800206?text=Halo%20Soleil!%20Saya%20mau%20order%20Banana%20Puff%20🍌" class="btn-order" target="_blank">
             Order Now →
           </a>
         </div>
@@ -703,8 +822,8 @@
           Kulit crepe setebal sutra membungkus potongan mangga segar nan manis, didampingi whipped cream lembut yang ringan seperti awan tropis — satu gigitan, dan kamu akan merasakan seluruh keindahan musim panas di lidahmu.
         </p>
         <div class="menu-footer">
-          <div class="menu-price">Rp 15.000 <span>/ pcs</span></div>
-          <a href="https://wa.me/6281234567890?text=Halo%20Soleil!%20Saya%20mau%20order%20Mango%20Pancake%20🥭" class="btn-order" target="_blank">
+          <div class="menu-price">Rp 15.000 <span>/ box</span></div>
+          <a href="https://wa.me/6281222800206?text=Halo%20Soleil!%20Saya%20mau%20order%20Mango%20Pancake%20🥭" class="btn-order" target="_blank">
             Order Now →
           </a>
         </div>
@@ -834,8 +953,8 @@
       <div class="order-card-desc">
         Pastry renyah berlapis dengan pisang manis pilihan. Freshly baked, siap memanjakan lidahmu.
       </div>
-      <div class="order-card-price">Rp 10.000 <small>/ pcs</small></div>
-      <a href="https://wa.me/6281234567890?text=Halo%20Soleil!%20Saya%20mau%20order%20Banana%20Puff%20🍌" class="btn-wa" target="_blank">
+      <div class="order-card-price">Rp 10.000 <small>/ box</small></div>
+      <a href="https://wa.me/6281222800206?text=Halo%20Soleil!%20Saya%20mau%20order%20Banana%20Puff%20🍌" class="btn-wa" target="_blank">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         Order Now
       </a>
@@ -845,8 +964,8 @@
       <div class="order-card-desc">
         Crepe sutra lembut isi mangga segar dan whipped cream — tropical bliss dalam satu bungkusan.
       </div>
-      <div class="order-card-price">Rp 15.000 <small>/ pcs</small></div>
-      <a href="https://wa.me/6281234567890?text=Halo%20Soleil!%20Saya%20mau%20order%20Mango%20Pancake%20🥭" class="btn-wa" target="_blank">
+      <div class="order-card-price">Rp 15.000 <small>/ box</small></div>
+      <a href="https://wa.me/6281222800206?text=Halo%20Soleil!%20Saya%20mau%20order%20Mango%20Pancake%20🥭" class="btn-wa" target="_blank">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         Order Now
       </a>
@@ -864,7 +983,7 @@
         <div class="contact-icon">📱</div>
         <div class="contact-item-text">
           <h4>WhatsApp</h4>
-          <p><a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a></p>
+          <p><a href="https://wa.me/6281222800206" target="_blank">+62 812-2280-0206</a></p>
         </div>
       </div>
       <div class="contact-item">
@@ -878,14 +997,14 @@
         <div class="contact-icon">📍</div>
         <div class="contact-item-text">
           <h4>Lokasi</h4>
-          <p>Jakarta, Indonesia<br><small>*Tersedia delivery via ojek online</small></p>
+          <p>Jl. Kembar Baru No.23, Cigereleng,<br>Kec. Regol, Kota Bandung, Jawa Barat 40253<br><small>*Tersedia delivery via ojek online</small></p>
         </div>
       </div>
       <div class="contact-item">
         <div class="contact-icon">🕐</div>
         <div class="contact-item-text">
           <h4>Jam Operasional</h4>
-          <p>Senin – Sabtu: 08.00 – 20.00 WIB<br>Minggu: 09.00 – 17.00 WIB</p>
+          <p>Senin – Sabtu: 08.00 – 17.00 WIB<br><small>*Minggu & hari libur nasional tutup</small></p>
         </div>
       </div>
     </div>
@@ -893,7 +1012,7 @@
   <div class="contact-cta-box">
     <h3>Siap Coba <em>Soleil</em>?</h3>
     <p>Jangan tunda lagi — camilan terbaik harimu menunggu. Order sekarang dan rasakan perbedaannya!</p>
-    <a href="https://wa.me/6281234567890?text=Halo%20Soleil!%20Saya%20mau%20order" class="btn-wa" style="margin: 0 auto;" target="_blank">
+    <a href="https://wa.me/6281222800206?text=Halo%20Soleil!%20Saya%20mau%20order" class="btn-wa" style="margin: 0 auto;" target="_blank">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
       Order via WhatsApp
     </a>
@@ -903,209 +1022,97 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-header">
+    <p class="section-label">✦ FAQ</p>
+    <h2 class="section-title">Pertanyaan yang<br>Sering Ditanyakan</h2>
+    <p class="section-sub">Semua yang perlu kamu tahu sebelum menikmati kelezatan Soleil Puff&amp;Peel.</p>
+  </div>
+  <div class="faq-grid">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-text">🌿 Apakah bahan-bahan yang digunakan aman dan berkualitas?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Tentu saja! Semua bahan yang kami gunakan 100% lokal dan premium — dipilih langsung dari sumber terpercaya. Tidak ada bahan pengawet, tidak ada pewarna buatan. Kualitasnya sudah bicara sendiri lewat setiap gigitan. ✨</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-text">🥭 Bagaimana cara penyajian Mango Pancake yang paling nikmat?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Mango Pancake kami paling lezat dinikmati dalam kondisi dingin atau sejuk. Simpan di lemari pendingin sebelum disajikan — tekstur cream-nya akan semakin lembut, mangganya semakin segar, dan rasanya makin meleleh di lidah! 🧊</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-text">🍌 Ada tips menikmati Banana Puff yang lebih seru?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Ada dong! Coba sajikan Banana Puff dengan cocolan cokelat leleh — kombinasinya luar biasa. Pastry renyah bertemu manisnya pisang dan lembutnya cokelat. Dijamin satu box kurang! 🍫</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-text">📦 Bagaimana cara menyimpan produk agar tetap enak?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Simpan produk kami di tempat yang bersih, sejuk, dan tidak terpapar langsung sinar matahari. Panas berlebih dapat mengubah tekstur dan cita rasa produk. Untuk Mango Pancake, simpan di kulkas. Untuk Banana Puff, cukup di suhu ruang yang sejuk ya! 🌤️</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-text">🛵 Apakah tersedia layanan pengiriman?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Tersedia! Kamu bisa order via ojek online dari lokasi kami di Jl. Kembar Baru No.23, Cigereleng, Kec. Regol, Kota Bandung. Atau hubungi kami langsung via WhatsApp untuk info lebih lanjut. 📍</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 <strong>Soleil Puff&amp;Peel</strong> — Every Moment, Everywhere. Made with 🧡 in Indonesia.</p>
-  <p style="margin-top:6px; font-size:0.72rem;">
-    <a href="#hero">Home</a> · <a href="#menu">Menu</a> · <a href="#about">About</a> · <a href="#contact">Contact</a>
-  </p>
+  <div class="footer-inner">
+    <div class="footer-brand">Soleil <span>Puff&amp;Peel</span></div>
+    <div class="footer-tagline">✦ every moment, everywhere ✦</div>
+    <div class="footer-poem">
+      Seperti sinar matahari yang selalu kembali,<br>
+      kami hadir — hangat, manis, dan penuh cinta.<br>
+      Terima kasih sudah menjadi bagian dari cerita kami. 🧡
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-links">
+      <a href="#hero">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p class="footer-copy">© 2025 Soleil Puff&amp;Peel — Made with 🧡 in Indonesia</p>
+  </div>
 </footer>
 
-</body>
-</html>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="banana.jpg">
-      <div class="card-content">
-        <h3>Banana Puff</h3>
-        <p>Rp10.000</p>
-        <button class="btn" onclick="addToCart('Banana Puff',10000)">Tambah</button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section id="order">
-  <h2>Order</h2>
-
-  <div class="cart">
-    <h3>Keranjang</h3>
-    <ul id="cartList"></ul>
-    <p><strong>Total: Rp <span id="total">0</span></strong></p>
-
-    <input type="text" id="name" placeholder="Nama kamu">
-    <input type="text" id="address" placeholder="Alamat">
-
-    <button class="btn" onclick="checkout()">Pesan via WhatsApp</button>
-  </div>
-</section>
-
 <script>
-let cart = [];
-
-function addToCart(name, price) {
-  cart.push({name, price});
-  renderCart();
-}
-
-function renderCart() {
-  const list = document.getElementById('cartList');
-  const totalEl = document.getElementById('total');
-
-  list.innerHTML = '';
-  let total = 0;
-
-  cart.forEach(item => {
-    const li = document.createElement('li');
-    li.innerText = item.name + ' - Rp ' + item.price;
-    list.appendChild(li);
-    total += item.price;
-  });
-
-  totalEl.innerText = total;
-}
-
-function checkout() {
-  const name = document.getElementById('name').value;
-  const address = document.getElementById('address').value;
-
-  let message = `Halo, saya mau pesan:%0A`;
-  cart.forEach(item => {
-    message += `- ${item.name} (Rp ${item.price})%0A`;
-  });
-
-  message += `%0ANama: ${name}%0AAlamat: ${address}`;
-
-  window.open(`https://wa.me/628xxxxxxxxxx?text=${message}`);
-}
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
 </script>
-
-</body>
-</html>
-
-        /* Styling untuk Gambar */
-        .product-image {
-            width: 100%;
-            height: 200px; /* Tinggi gambar disamakan */
-            object-fit: cover; /* Biar gambar ga gepeng */
-            border-bottom: 3px solid var(--pastel-yellow);
-        }
-
-        .product-info { 
-            padding: 25px; 
-            text-align: center;
-            flex-grow: 1;
-        }
-
-        .motto { 
-            font-style: italic; 
-            color: #888; 
-            font-size: 0.9em; 
-            margin-bottom: 10px; 
-            display: block;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .product-name { 
-            color: var(--mint-sage); 
-            margin: 10px 0; 
-            font-size: 1.8em; 
-        }
-
-        .description {
-            line-height: 1.6;
-            font-size: 0.95em;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .price { 
-            font-size: 1.5em; 
-            font-weight: bold; 
-            color: var(--text-dark); 
-            background-color: var(--pastel-yellow);
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-
-        .contact-box {
-            background-color: #fff;
-            padding: 30px;
-            text-align: center;
-            border-top: 2px dashed var(--mint-sage);
-        }
-
-        .btn { 
-            display: inline-block;
-            text-decoration: none;
-            background-color: var(--mint-sage); 
-            color: white; 
-            padding: 12px 30px; 
-            border-radius: 50px; 
-            font-weight: bold; 
-            transition: 0.3s;
-            margin: 5px;
-        }
-
-        .btn:hover { 
-            background-color: #9abf8a;
-            transform: scale(1.05);
-        }
-
-        footer { 
-            text-align: center; 
-            padding: 40px; 
-            font-size: 0.9em; 
-            color: #888; 
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>Soleil Puff&Peel</h1>
-        <p>Hadirkan Keceriaan dalam Setiap Gigitan</p>
-    </header>
-
-    <div class="container">
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1621506821199-a8d3392e8165?q=80&w=400&auto=format&fit=crop" alt="Mango Pancake" class="product-image">
-            
-            <div class="product-info">
-                <span class="motto">"Mango Inside, Smile Outside"</span>
-                <h2 class="product-name">Mango Pancake</h2>
-                <p class="description">Kesegaran buah mangga Harum Manis pilihan yang dibalut kulit crepe sutra nan lembut. Dipadukan dengan whipped cream premium yang meleleh di mulut, menciptakan sensasi tropis yang tak terlupakan.</p>
-                <p class="price">Rp 15.000</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?q=80&w=400&auto=format&fit=crop" alt="Banana Puff" class="product-image">
-
-            <div class="product-info">
-                <span class="motto">"Crunchy on the outside, soul-warming on the inside"</span>
-                <h2 class="product-name">Banana Puff</h2>
-                <p class="description">Perpaduan sempurna potongan pisang manis yang caramelize di dalam lapisan pastry renyah bertekstur. Setiap layernya memberikan sensasi gurih dan hangat yang memanjakan jiwa sejak gigitan pertama.</p>
-                <p class="price">Rp 10.000</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="contact-box">
-        <h3>Tertarik Mencoba? Hubungi Kami:</h3>
-        <a href="#" class="btn">Instagram</a>
-        <a href="#" class="btn">WhatsApp</a>
-    </div>
-
-    <footer>
-        &copy; 2026 Soleil Puff&Peel - Crafted for Perfection
-    </footer>
-
 </body>
 </html>
