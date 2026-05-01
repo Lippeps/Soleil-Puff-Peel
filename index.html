@@ -179,6 +179,81 @@
     footer a:hover { color: var(--gold); }
     .footer-copy { font-size: 0.72rem; color: rgba(245,237,216,0.3); letter-spacing: 0.06em; }
 
+    /* NUTRITION */
+    #nutrition { background: var(--brown); color: var(--cream); }
+    .nutrition-header { text-align: center; margin-bottom: 56px; }
+    .nutrition-header .section-label { color: var(--gold); }
+    .nutrition-header .section-title { color: var(--cream); }
+    .nutrition-header .section-sub { color: rgba(245,237,216,0.65); margin: 0 auto; text-align: center; }
+    .nutrition-tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 48px; flex-wrap: wrap; }
+    .ntab {
+      background: rgba(245,237,216,0.08); border: 1.5px solid rgba(245,237,216,0.2);
+      color: rgba(245,237,216,0.7); padding: 10px 28px; border-radius: 50px;
+      cursor: pointer; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.04em;
+      transition: all 0.3s;
+    }
+    .ntab.active { background: var(--gold); border-color: var(--gold); color: var(--brown); }
+    .nutrition-panel { display: none; max-width: 860px; margin: 0 auto; }
+    .nutrition-panel.active { display: block; }
+    .nutrition-top {
+      display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center;
+      background: rgba(245,237,216,0.06); border-radius: 24px; padding: 36px 40px; margin-bottom: 24px;
+      border: 1px solid rgba(245,237,216,0.1);
+    }
+    .kcal-circle {
+      width: 130px; height: 130px; border-radius: 50%;
+      border: 4px solid var(--gold); display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; flex-shrink: 0;
+    }
+    .kcal-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--gold); line-height: 1; }
+    .kcal-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,237,216,0.6); margin-top: 4px; }
+    .kcal-sub { font-size: 0.65rem; color: rgba(245,237,216,0.4); margin-top: 2px; }
+    .nutrition-bars { display: flex; flex-direction: column; gap: 16px; }
+    .nbar-row { }
+    .nbar-info { display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .nbar-name { font-size: 0.8rem; font-weight: 600; color: var(--cream); letter-spacing: 0.04em; }
+    .nbar-val { font-size: 0.8rem; color: var(--gold); font-weight: 700; }
+    .nbar-track { height: 8px; background: rgba(245,237,216,0.1); border-radius: 50px; overflow: hidden; }
+    .nbar-fill { height: 100%; border-radius: 50px; transition: width 1s ease; width: 0; }
+    .nbar-source { font-size: 0.72rem; color: rgba(245,237,216,0.4); margin-top: 4px; }
+    .nutrition-note {
+      background: rgba(245,237,216,0.05); border-radius: 14px; padding: 18px 24px;
+      border-left: 3px solid var(--gold);
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 0.95rem; color: rgba(245,237,216,0.6); line-height: 1.7;
+    }
+
+    /* CALORIE COUNTER */
+    #calcounter { background: var(--cream); }
+    .calc-header { text-align: center; margin-bottom: 48px; }
+    .calc-header .section-sub { margin: 0 auto; }
+    .calc-box { max-width: 700px; margin: 0 auto; background: var(--warm-white); border-radius: 28px; padding: 44px; box-shadow: 0 10px 50px rgba(59,31,14,0.1); }
+    .calc-products { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
+    .calc-product {
+      background: var(--cream); border-radius: 18px; padding: 24px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .calc-product-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 800; color: var(--brown); }
+    .calc-product-kcal { font-size: 0.8rem; color: var(--brown-mid); }
+    .calc-qty { display: flex; align-items: center; gap: 12px; }
+    .qty-btn {
+      width: 34px; height: 34px; border-radius: 50%; border: 2px solid var(--brown);
+      background: none; cursor: pointer; font-size: 1.1rem; font-weight: 700;
+      color: var(--brown); transition: all 0.2s; display: flex; align-items: center; justify-content: center;
+    }
+    .qty-btn:hover { background: var(--brown); color: var(--cream); }
+    .qty-num { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--brown); min-width: 28px; text-align: center; }
+    .calc-result {
+      background: var(--brown); color: var(--cream); border-radius: 18px;
+      padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .calc-result-label { font-size: 0.85rem; color: rgba(245,237,216,0.65); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+    .calc-total { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; color: var(--mango); line-height: 1; }
+    .calc-unit { font-size: 1rem; color: rgba(245,237,216,0.5); }
+    .calc-breakdown { font-size: 0.78rem; color: rgba(245,237,216,0.5); line-height: 1.7; }
+    .calc-reset { background: rgba(245,237,216,0.1); border: 1px solid rgba(245,237,216,0.2); color: var(--cream); padding: 10px 22px; border-radius: 50px; cursor: pointer; font-size: 0.8rem; transition: all 0.3s; }
+    .calc-reset:hover { background: var(--orange); border-color: var(--orange); }
+
     /* FLOATING */
     .float-wa { position: fixed; bottom: 28px; right: 28px; z-index: 999; background: #25D366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 24px rgba(37,211,102,0.45); text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; animation: float 3s ease-in-out infinite; }
     .float-wa:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(37,211,102,0.55); }
@@ -222,6 +297,7 @@
     <li><a href="#menu">Menu</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#nutrition">Gizi</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact" class="nav-cta">Order Now</a></li>
   </ul>
@@ -326,6 +402,130 @@
     <div class="gal-item"><img src="1000266065.jpg" alt="Gallery 2"/></div>
     <div class="gal-item"><img src="1000266067.jpg" alt="Gallery 3"/></div>
     <div class="gal-item"><img src="1000266072.png" alt="Gallery 4"/></div>
+  </div>
+</section>
+
+<!-- NUTRITION -->
+<section id="nutrition">
+  <div class="nutrition-header reveal">
+    <p class="section-label">✦ Kandungan Gizi</p>
+    <h2 class="section-title">Enak & Bergizi,<br>Tanpa Kompromi.</h2>
+    <p class="section-sub">Transparansi adalah bagian dari cinta kami — karena kamu berhak tahu apa yang kamu nikmati.</p>
+  </div>
+  <div class="nutrition-tabs">
+    <button class="ntab active" onclick="switchTab('banana')">🍌 Banana Puff</button>
+    <button class="ntab" onclick="switchTab('mango')">🥭 Mango Pancake</button>
+  </div>
+
+  <!-- Banana Puff Panel -->
+  <div class="nutrition-panel active" id="panel-banana">
+    <div class="nutrition-top">
+      <div class="kcal-circle">
+        <span class="kcal-num">210</span>
+        <span class="kcal-label">kkal</span>
+        <span class="kcal-sub">per box</span>
+      </div>
+      <div class="nutrition-bars">
+        <div class="nbar-row">
+          <div class="nbar-info"><span class="nbar-name">🌾 Karbohidrat</span><span class="nbar-val">26 g</span></div>
+          <div class="nbar-track"><div class="nbar-fill" style="width:0%" data-w="72%" data-color="#D4A853"></div></div>
+          <div class="nbar-source">Tepung terigu & pati alami dari pisang</div>
+        </div>
+        <div class="nbar-row">
+          <div class="nbar-info"><span class="nbar-name">🧈 Lemak</span><span class="nbar-val">11 g</span></div>
+          <div class="nbar-track"><div class="nbar-fill" style="width:0%" data-w="44%" data-color="#C8581A"></div></div>
+          <div class="nbar-source">Korsvet/pastry margarine — tekstur renyah flaky</div>
+        </div>
+        <div class="nbar-row">
+          <div class="nbar-info"><span class="nbar-name">🥚 Protein</span><span class="nbar-val">3 g</span></div>
+          <div class="nbar-track"><div class="nbar-fill" style="width:0%" data-w="20%" data-color="#8B9E6E"></div></div>
+          <div class="nbar-source">Gluten tepung & telur untuk olesan</div>
+        </div>
+        <div class="nbar-row">
+          <div class="nbar-info"><span class="nbar-name">⚡ Mineral</span><span class="nbar-val">Tinggi</span></div>
+          <div class="nbar-track"><div class="nbar-fill" style="width:0%" data-w="85%" data-color="#F0B429"></div></div>
+          <div class="nbar-source">Kaya Kalium (Potasium) dari pisang — baik untuk otot & saraf</div>
+        </div>
+      </div>
+    </div>
+    <div class="nutrition-note">
+      ✦ Banana Puff menghadirkan energi natural dari pisang lokal pilihan yang kaya kalium — mineral penting untuk menjaga keseimbangan cairan tubuh, fungsi otot, dan kesehatan saraf. Camilan hangat yang tidak hanya memanjakan, tapi juga menyehatkan.
+    </div>
+  </div>
+
+  <!-- Mango Pancake Panel -->
+  <div class="nutrition-panel" id="panel-mango">
+    <div class="nutrition-top">
+      <div class="kcal-circle">
+        <span class="kcal-num">165</span>
+        <span class="kcal-label">kkal</span>
+        <span class="kcal-sub">per box</span>
+      </div>
+      <div class="nutrition-bars">
+        <div class="nbar-row">
+          <div class="nbar-info"><span class="nbar-name">🌾 Karbohidrat</span><span class="nbar-val">22 g</span></div>
+          <div class="nbar-track"><div class="nbar-fill" style="width:0%" data-w="62%" data-color="#D4A853"></div></div>
+          <div class="nbar-source">Tepung terigu & gula alami dari buah mangga</div>
+        </div>
+        <div class="nbar-row">
+          <div class="nbar-info"><span class="nbar-name">🧈 Lemak</span><span class="nbar-val">8 g</span></div>
+          <div class="nbar-track"><div class="nbar-fill" style="width:0%" data-w="32%" data-color="#C8581A"></div></div>
+          <div class="nbar-source">Whipped cream & mentega cair pada kulit crepe</div>
+        </div>
+        <div class="nbar-row">
+          <div class="nbar-info"><span class="nbar-name">🥚 Protein</span><span class="nbar-val">2,5 g</span></div>
+          <div class="nbar-track"><div class="nbar-fill" style="width:0%" data-w="17%" data-color="#8B9E6E"></div></div>
+          <div class="nbar-source">Susu cair & telur pada adonan kulit crepe</div>
+        </div>
+        <div class="nbar-row">
+          <div class="nbar-info"><span class="nbar-name">🍊 Serat & Vitamin</span><span class="nbar-val">Tinggi</span></div>
+          <div class="nbar-track"><div class="nbar-fill" style="width:0%" data-w="90%" data-color="#F0B429"></div></div>
+          <div class="nbar-source">Tinggi Vitamin C & serat pangan dari mangga asli</div>
+        </div>
+      </div>
+    </div>
+    <div class="nutrition-note">
+      ✦ Mango Pancake adalah pilihan ringan yang menyegarkan — buah mangga segar sebagai isian utama membawa dosis Vitamin C alami yang membantu imunitas tubuh, sekaligus serat pangan yang baik untuk pencernaan. Manis alami, tanpa rasa bersalah.
+    </div>
+  </div>
+</section>
+
+<!-- CALORIE COUNTER -->
+<section id="calcounter">
+  <div class="calc-header reveal">
+    <p class="section-label">✦ Hitung Kalorimu</p>
+    <h2 class="section-title">Berapa yang<br>Kamu Makan Hari Ini?</h2>
+    <p class="section-sub">Tambah jumlah produk dan lihat total kalorimu secara langsung!</p>
+  </div>
+  <div class="calc-box">
+    <div class="calc-products">
+      <div class="calc-product">
+        <div class="calc-product-name">🍌 Banana Puff</div>
+        <div class="calc-product-kcal">210 kkal / box</div>
+        <div class="calc-qty">
+          <button class="qty-btn" onclick="changeQty('bp', -1)">−</button>
+          <span class="qty-num" id="qty-bp">0</span>
+          <button class="qty-btn" onclick="changeQty('bp', 1)">+</button>
+        </div>
+      </div>
+      <div class="calc-product">
+        <div class="calc-product-name">🥭 Mango Pancake</div>
+        <div class="calc-product-kcal">165 kkal / box</div>
+        <div class="calc-qty">
+          <button class="qty-btn" onclick="changeQty('mp', -1)">−</button>
+          <span class="qty-num" id="qty-mp">0</span>
+          <button class="qty-btn" onclick="changeQty('mp', 1)">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="calc-result">
+      <div>
+        <div class="calc-result-label">Total Kalori</div>
+        <div><span class="calc-total" id="calc-total">0</span> <span class="calc-unit">kkal</span></div>
+      </div>
+      <div class="calc-breakdown" id="calc-breakdown">Pilih produk di atas untuk menghitung 🍽️</div>
+      <button class="calc-reset" onclick="resetCalc()">↺ Reset</button>
+    </div>
   </div>
 </section>
 
@@ -485,19 +685,80 @@
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Kembali ke atas">↑</button>
 
 <script>
+  // FAQ
   function toggleFaq(btn) {
     const item = btn.closest('.faq-item');
     const isOpen = item.classList.contains('open');
     document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   }
+
+  // Scroll top
   window.addEventListener('scroll', () => {
     document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
   });
+
+  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Nutrition bars animate on scroll
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.nbar-fill').forEach(bar => {
+          bar.style.width = bar.dataset.w;
+          bar.style.background = bar.dataset.color;
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.nutrition-panel').forEach(p => barObserver.observe(p));
+
+  // Nutrition tab switch
+  function switchTab(tab) {
+    document.querySelectorAll('.ntab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.nutrition-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + tab).classList.add('active');
+    event.target.classList.add('active');
+    // re-trigger bar animation
+    setTimeout(() => {
+      document.querySelectorAll('#panel-' + tab + ' .nbar-fill').forEach(bar => {
+        bar.style.width = '0%';
+        setTimeout(() => {
+          bar.style.width = bar.dataset.w;
+          bar.style.background = bar.dataset.color;
+        }, 50);
+      });
+    }, 10);
+  }
+
+  // Calorie counter
+  let qty = { bp: 0, mp: 0 };
+  const kcal = { bp: 210, mp: 165 };
+  function changeQty(p, d) {
+    qty[p] = Math.max(0, qty[p] + d);
+    document.getElementById('qty-' + p).textContent = qty[p];
+    updateCalc();
+  }
+  function updateCalc() {
+    const total = qty.bp * kcal.bp + qty.mp * kcal.mp;
+    document.getElementById('calc-total').textContent = total;
+    const parts = [];
+    if (qty.bp > 0) parts.push(qty.bp + ' Banana Puff (' + (qty.bp * kcal.bp) + ' kkal)');
+    if (qty.mp > 0) parts.push(qty.mp + ' Mango Pancake (' + (qty.mp * kcal.mp) + ' kkal)');
+    document.getElementById('calc-breakdown').textContent = parts.length
+      ? parts.join(' + ')
+      : 'Pilih produk di atas untuk menghitung 🍽️';
+  }
+  function resetCalc() {
+    qty = { bp: 0, mp: 0 };
+    document.getElementById('qty-bp').textContent = 0;
+    document.getElementById('qty-mp').textContent = 0;
+    updateCalc();
+  }
 </script>
 </body>
 </html>
